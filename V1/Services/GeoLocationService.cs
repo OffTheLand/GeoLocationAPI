@@ -44,12 +44,25 @@ namespace GeoLocationAPI.V1.Services
                     if (reader.TryCity(response.IPAddress, out var trycityResponse))
                     {
                         var cityResponse = reader.City(response.IPAddress);
-                        response.City = cityResponse.City.ToString();
-                        response.TimeZone = cityResponse.Location.TimeZone?.ToString();
-                        response.Continent = cityResponse.Continent.ToString();
-                        response.Country = cityResponse.Country.ToString();
-                        response.IPFoundInGeoDB = true;
-                        response.Message = (response.IPAddress + " found in the GeoDB");
+                        if (cityResponse != null)
+                        {
+                            response.City = cityResponse.City.ToString();
+                            response.TimeZone = cityResponse.Location.TimeZone?.ToString();
+                            response.Latitude = cityResponse.Location.Latitude?.ToString();
+                            response.Longitude = cityResponse.Location.Longitude?.ToString();
+                            response.Continent = cityResponse.Continent?.ToString();
+                            response.Country = cityResponse.Country?.ToString();
+                            response.State = cityResponse.MostSpecificSubdivision?.ToString();
+                            response.Postal = cityResponse.Postal?.Code?.ToString();
+                            response.IPFoundInGeoDB = true;
+                            response.Message = (response.IPAddress + " found in the GeoDB");
+                        }
+                        else
+                        {
+                            response.IPFoundInGeoDB = false;
+                            _logger.LogWarning(response.IPAddress + " not found in the GeoDB");
+                            response.Message = (response.IPAddress + " not found in the GeoDB");
+                        }
                     }
                     else
                     {

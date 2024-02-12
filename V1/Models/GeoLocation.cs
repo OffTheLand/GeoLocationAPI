@@ -28,19 +28,39 @@ namespace GeoLocationAPI.V1.Models
         public string? City { get; set; }
 
         /// <summary>
+        /// Gets or sets the State for the IPAddress
+        /// </summary>
+        public string? State { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Postal Code for the IPAddress
+        /// </summary>
+        public string? Postal { get; set; }
+
+        /// <summary>
         /// Gets or sets the TimeZone for the IPAddress
         /// </summary>
         public string? TimeZone { get; set; }
 
         /// <summary>
-        /// Gets or sets the Continent for the IPAddress
+        /// Gets or sets the Latitude for the IPAddress
         /// </summary>
-        public string? Continent { get; set; }
+        public string? Latitude { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Longitude for the IPAddress
+        /// </summary>
+        public string? Longitude { get; set; }
 
         /// <summary>
         /// Gets or sets the Country for the IPAddress
         /// </summary>
         public string? Country { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Continent for the IPAddress
+        /// </summary>
+        public string? Continent { get; set; }
 
         /// <summary>
         /// Bool result if the IPAddress is found in the GeoDB
