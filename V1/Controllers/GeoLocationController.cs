@@ -1,6 +1,6 @@
-﻿using GeoLocationAPI.V1.Services;
+﻿using GeoLocationAPI.V1.Models;
+using GeoLocationAPI.V1.Services;
 using Microsoft.AspNetCore.Mvc;
-using GeoLocationAPI.V1.Models;
 namespace GeoLocationAPI.V1.Controllers
 {
     /// <summary>
